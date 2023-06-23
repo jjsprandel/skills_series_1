@@ -1,3 +1,10 @@
+DEVICE = MSP430FR6989
+
+ifndef DEVICE
+$(info Please specify a device, e.g. DEVICE=MSP430F5529)
+$(error unspecified device)
+endif
+
 HOST_COMPILER = gcc -c
 EMB_COMPILER = cl430
 HOST_SOURCES := $(wildcard src/app/*.c)
@@ -12,3 +19,9 @@ compile_emb: directories
 directories:
 	mkdir -p build
 	mkdir -p output
+
+docker_build:
+	docker build -t test1 .
+
+docker_run:
+	docker run -it -v "$(PWD):/home/app" test1:latest bash
