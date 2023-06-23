@@ -1,5 +1,5 @@
 // Flashing the LED with Timer_A, up mode, via polling
-#include "msp430fr6989.h"
+#include "/opt/ti/ccs/ccs_base/msp430/include/msp430fr6989.h"
 #define redLED BIT0 // Red LED at P1.0
 #define greenLED BIT7 // Green LED at P9.7
 
